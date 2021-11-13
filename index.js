@@ -239,7 +239,7 @@ async function run() {
 			console.log("Request to find ", filter);
 			const user = await usersCollection.findOne(filter);
 			let isAdmin = false;
-			if (user?.userRole === "Admin") {
+			if (user?.userRole === "Admin" || user?.userRole === "Developer") {
 				isAdmin = true;
 			}
 			res.json({ admin: isAdmin });
