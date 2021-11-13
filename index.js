@@ -283,8 +283,17 @@ async function run() {
 			const get = blogCollection.find({});
 			console.log("Request to find blogs");
 			blogs = await get.toArray();
-			res.send(blogs);
-			console.log("Found all users", blogs);
+			res.send(blogs.slice(0, 3));
+			console.log("Found all blogs", blogs);
+		});
+		//To Show first 3 blogs from DB
+		app.get("/blogs3", async (req, res) => {
+			console.log(req.query);
+			const get = blogCollection.find({});
+			console.log("Request to find blogs");
+			blogs = await get.toArray();
+			res.send(blogs.slice(0, 3));
+			console.log("Found all blogs", blogs);
 		});
 
 		//To Show all reviews from DB
@@ -314,6 +323,15 @@ async function run() {
 			console.log("Request to find products");
 			products = await get.toArray();
 			res.send(products);
+			console.log("Found all products", products);
+		});
+		//To Show first 6 products from DB
+		app.get("/products6", async (req, res) => {
+			console.log(req.query);
+			const get = productsCollection.find({});
+			console.log("Request to find products");
+			products = await get.toArray();
+			res.send(products.slice(0, 6));
 			console.log("Found all products", products);
 		});
 		//To Show all reviews from DB
