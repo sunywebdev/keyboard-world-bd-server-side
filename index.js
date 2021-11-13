@@ -325,13 +325,13 @@ async function run() {
 			res.send(products);
 			console.log("Found all products", products);
 		});
-		//To Show first 6 products from DB
-		app.get("/products6", async (req, res) => {
+		//To Show first 8 products from DB
+		app.get("/products8", async (req, res) => {
 			console.log(req.query);
 			const get = productsCollection.find({});
 			console.log("Request to find products");
 			products = await get.toArray();
-			res.send(products.slice(0, 6));
+			res.send(products.slice(0, 8));
 			console.log("Found all products", products);
 		});
 		//To Show all reviews from DB
