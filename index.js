@@ -283,7 +283,7 @@ async function run() {
 			const get = blogCollection.find({});
 			console.log("Request to find blogs");
 			blogs = await get.toArray();
-			res.send(blogs.slice(0, 3));
+			res.send(blogs);
 			console.log("Found all blogs", blogs);
 		});
 		//To Show first 3 blogs from DB
