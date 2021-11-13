@@ -239,10 +239,12 @@ async function run() {
 			console.log("Request to find ", filter);
 			const user = await usersCollection.findOne(filter);
 			let isAdmin = false;
+			let isDeveloper = false;
 			if (user?.userRole === "Admin" || user?.userRole === "Developer") {
 				isAdmin = true;
+				isDeveloper = true;
 			}
-			res.json({ admin: isAdmin });
+			res.json({ admin: isAdmin, admin: isDeveloper });
 			console.log("Found one", user);
 		});
 
